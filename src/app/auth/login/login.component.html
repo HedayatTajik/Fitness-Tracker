@@ -1,0 +1,22 @@
+<section class="conteiner">
+
+    <h3>Sign in</h3>
+    <form class="form" [formGroup]="signInForm" (ngSubmit)="onSubmit()" >
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="Email" matInput placeholder="your Email" formControlName="email" email required>
+            <mat-error> Field must not be empty </mat-error>
+            <mat-error> Email is invalid </mat-error>
+        </mat-form-field>
+
+        <br>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="your Password" formControlName="password">
+            <mat-error> Field must not be empty </mat-error>
+        </mat-form-field>
+        <br>
+
+        <button type="submit" mat-flat-button color="primary" [disabled]="!signInForm.valid">Submit</button>
+    </form>
+</section>

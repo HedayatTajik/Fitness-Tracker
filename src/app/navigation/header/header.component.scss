@@ -1,0 +1,38 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%; 
+ }
+ 
+ mat-sidenav{
+    width: 200px;
+ }
+ 
+ a{
+    text-decoration: none;
+    color: white;
+ }
+ 
+ a:hover,
+ a:active {
+    color: lightgray;
+ }
+ mat-toolbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ }
+ 
+ 
+ .menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+ }
+ 
+ .logo{
+ margin-left: 5px;
+ }
+ 
+ .nav-caption{
+    padding-left: 6px;
+ }

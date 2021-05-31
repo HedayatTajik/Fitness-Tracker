@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <div class="menu">
+        <div fxHide.gt-xs>
+            <button mat-icon-button (click)="onToggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div class="logo">
+            <a routerLink="/">LOGO</a>
+        </div>
+    </div>
+
+    <div fxHide.xs>
+        <button mat-button>
+            <a routerLink="/signup"> SignUp</a>
+        </button>
+        <button mat-button>
+            <a routerLink="/signin"> SignIn</a>
+        </button>
+        <button mat-button>
+            <a routerLink="/training"> Training</a>
+        </button>
+    </div>
+
+
+</mat-toolbar>

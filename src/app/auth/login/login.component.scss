@@ -1,0 +1,18 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgb(219, 218, 218);
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+    width: 300px;
+    align-items: center;
+}
+
+.conteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
