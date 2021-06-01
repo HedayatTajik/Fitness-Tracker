@@ -10,6 +10,7 @@ export class WelcomeComponent implements OnInit {
   constructor() { }
   myArra: number[] = [1, 3, 4, 5, 7, 6, 9, 10, 2, 8]
   ngOnInit(): void {
+
     var temp;
     for (let i = 0; i < this.myArra.length - 1; i++) {
       

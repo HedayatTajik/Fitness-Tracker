@@ -11,15 +11,24 @@
     </div>
 
     <div fxHide.xs>
-        <button mat-button>
-            <a routerLink="/signup"> SignUp</a>
+        <button *ngIf="!isAuth" mat-button>
+            <a routerLink="/signup"> Signup</a>
         </button>
-        <button mat-button>
-            <a routerLink="/signin"> SignIn</a>
+        <button *ngIf="!isAuth" mat-button>
+            <a routerLink="/signin"> Signin</a>
         </button>
-        <button mat-button>
+        <button *ngIf="isAuth" mat-button>
             <a routerLink="/training"> Training</a>
         </button>
+
+        <button *ngIf="isAuth" mat-button [matMenuTriggerFor]="menu">
+            <mat-icon>face</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="onLogout()" mat-menu-item>
+                <mat-icon>logout</mat-icon> logout
+            </button>
+        </mat-menu>
     </div>
 
 

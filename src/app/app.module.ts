@@ -40,6 +40,9 @@ import { MatTreeModule } from '@angular/material/tree';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidnavListComponent } from './navigation/sidnav-list/sidnav-list.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { StopTrainingComponent } from './training/current-training/stop-training/stop-training.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import { SidnavListComponent } from './navigation/sidnav-list/sidnav-list.compon
     WelcomeComponent,
     HeaderComponent,
     SidnavListComponent,
+    StopTrainingComponent,
     
 
 
@@ -90,9 +94,10 @@ import { SidnavListComponent } from './navigation/sidnav-list/sidnav-list.compon
     MatFormFieldModule,
     MatButtonToggleModule,
     MatTreeModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
