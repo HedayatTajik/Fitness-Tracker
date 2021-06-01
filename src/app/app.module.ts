@@ -12,7 +12,9 @@ import { PasstTrainingsComponent } from './training/passt-trainings/passt-traini
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -48,6 +50,7 @@ import { TrainigService } from './training/training.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
+
   declarations: [
     AppComponent,
     SignupComponent,
@@ -101,7 +104,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatDialogModule
   ],
-  providers: [AuthService, TrainigService],
+  providers: [AuthService, TrainigService,{ provide: LOCALE_ID, useValue: "de" }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    registerLocaleData(localeDe);
+  }
+ }
