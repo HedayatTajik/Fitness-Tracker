@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule,  ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './auth/signup/signup.component';
@@ -12,6 +12,7 @@ import { PasstTrainingsComponent } from './training/passt-trainings/passt-traini
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
@@ -37,12 +38,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidnavListComponent } from './navigation/sidnav-list/sidnav-list.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { StopTrainingComponent } from './training/current-training/stop-training/stop-training.component';
 import { AuthService } from './auth/auth.service';
+import { TrainigService } from './training/training.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,7 @@ import { AuthService } from './auth/auth.service';
     HeaderComponent,
     SidnavListComponent,
     StopTrainingComponent,
-    
+
 
 
   ],
@@ -69,6 +72,7 @@ import { AuthService } from './auth/auth.service';
     MatNativeDateModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    HttpClientModule,
 
     MatAutocompleteModule,
     MatButtonModule,
@@ -97,7 +101,7 @@ import { AuthService } from './auth/auth.service';
     MatDatepickerModule,
     MatDialogModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
