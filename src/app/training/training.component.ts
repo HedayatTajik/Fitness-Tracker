@@ -9,17 +9,16 @@ import { Subscription } from 'rxjs';
 export class TrainingComponent implements OnInit, OnDestroy {
   onGoingTraining = false;
   exerciseSubscription !: Subscription
-  constructor(private trainigService:TrainigService) { }
+  constructor(private trainigService: TrainigService) { }
 
   ngOnInit(): void {
-this.exerciseSubscription = this.trainigService.exerciseChanged.subscribe(exercise =>
-  {
-    if(exercise){
-this.onGoingTraining = true;
-    }else{
-      this.onGoingTraining = false;
-    }
-  })
+    this.exerciseSubscription = this.trainigService.exerciseChanged.subscribe(exercise => {
+      if (exercise) {
+        this.onGoingTraining = true;
+      } else {
+        this.onGoingTraining = false;
+      }
+    })
 
   }
 

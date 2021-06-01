@@ -8,6 +8,8 @@ import { Exercise } from './exercise.model';
 export class TrainigService {
 
     exerciseChanged = new Subject<Exercise>();
+    private runningExercise !: Exercise;
+    private exercises: Exercise[] = []
 
     constructor(private http: HttpClient) { }
 
@@ -18,7 +20,6 @@ export class TrainigService {
         { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 }
     ]
 
-    private runningExercise !: Exercise
 
     getAvailableExercises(): Exercise[] {
         return this.availableExercise.slice()
@@ -28,6 +29,26 @@ export class TrainigService {
         const runningExercise: any = this.availableExercise.find(ex => ex.id === selectedId)
         this.runningExercise = runningExercise;
         this.exerciseChanged.next({ ...this.runningExercise })
+    }
+
+    completeExercise() {
+        this.exercises.push({ ...this.runningExercise, date: new Date(), state: 'completed' })
+        this.runningExercise = null as any;
+        this.exerciseChanged.next(null as any)
+
+    }
+    cancleExercise(progress: number) {
+        this.exercises.push(
+            {
+                ...this.runningExercise,
+                date: new Date(),
+                state: 'cancelled',
+                duration: this.runningExercise.duration * (progress / 100),
+                calories: this.runningExercise.duration * (progress / 100),
+            });
+        this.runningExercise = null as any;
+        this.exerciseChanged.next(null as any)
+
     }
 
     getRunningExercise() {
