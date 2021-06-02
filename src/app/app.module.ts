@@ -12,7 +12,6 @@ import { PasstTrainingsComponent } from './training/passt-trainings/passt-traini
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
@@ -48,6 +47,11 @@ import { StopTrainingComponent } from './training/current-training/stop-training
 import { AuthService } from './auth/auth.service';
 import { TrainigService } from './training/training.service';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from './../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 
 @NgModule({
 
@@ -76,6 +80,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FlexLayoutModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAnalyticsModule,
+
 
     MatAutocompleteModule,
     MatButtonModule,
@@ -104,11 +112,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatDialogModule
   ],
-  providers: [AuthService, TrainigService,{ provide: LOCALE_ID, useValue: "de" }],
+  providers: [AuthService, TrainigService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor() {
     registerLocaleData(localeDe);
   }
- }
+}
